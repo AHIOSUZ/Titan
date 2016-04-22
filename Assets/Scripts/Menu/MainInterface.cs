@@ -49,6 +49,8 @@ public class MainInterface : MonoBehaviour {
 
 	public void OnServerClick (BaseEventData data) {
 		print ("Server");
+		this.FadeOut ();
+		serverPanel.transform.GetComponent<Server> ().MoveIn ();
 	}
 
 	public void OnStartClick (BaseEventData data) {

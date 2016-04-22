@@ -52,6 +52,8 @@
      <Compile Include="Assets\Scripts\EventTriggerManager\EventTriggerManager.cs" />
      <Compile Include="Assets\Scripts\Menu\Login.cs" />
      <Compile Include="Assets\Scripts\Menu\MainInterface.cs" />
+     <Compile Include="Assets\Scripts\Menu\Server.cs" />
+     <Compile Include="Assets\Scripts\Menu\ServerItem.cs" />
      <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
      <None Include="Assets\Demigiant\DOTween\DOTween50.xml" />
      <None Include="Assets\Text\Task        任务信息清单.txt" />
