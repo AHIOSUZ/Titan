@@ -23,24 +23,29 @@ public class Login : MonoBehaviour {
 		account = transform.Find ("Account/InputField").GetComponent<InputField> ();
 	}
 
-	public void FadeIn () {
+	public void MoveIn () {
 		this.gameObject.SetActive (true);
-		tweenAni.DOPlayBackwards ();
+		tweenAni.DOPlayForward ();
 	}
 
-	public void FadeOut () {
-		tweenAni.DOPlayForward ();
+	public void MoveOut () {
+		tweenAni.DOPlayBackwards ();
 	}
 
 	public void OnLoginClick (BaseEventData data) {
 		print ("login");
-		this.FadeOut ();
+		this.MoveOut ();
 		maininterfacePanel.transform.GetComponent<MainInterface> ().FadeIn ();
+
+		Hashtable table = new Hashtable ();
+		table.Add ("UserName", account.text);
+		CustomEventData eventdata = new CustomEventData ("AccountChange", table, this.gameObject);
+		CustomEventManager.GetInstance ().DispatchEvent (eventdata);
 	}
 
 	public void OnCloseClick (BaseEventData data) {
 		print ("close");
-		this.FadeOut ();
+		this.MoveOut ();
 		maininterfacePanel.transform.GetComponent<MainInterface> ().FadeIn ();
 	}
 }
