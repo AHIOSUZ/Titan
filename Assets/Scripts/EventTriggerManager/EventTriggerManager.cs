@@ -28,5 +28,16 @@ namespace Custom.Manager{
 			newEntry.callback.AddListener (listener);
 			trigger.triggers.Add (newEntry);
 		}
+
+		public delegate void CustomEventDelegate(BaseEventData data, Hashtable args);
+		public void AddTriggerEvent (GameObject go, EventTriggerType eventID, CustomEventDelegate listener, Hashtable args) {
+			var trigger = this.GetEventTrigger (go);
+			var newEntry = new EventTrigger.Entry ();
+			newEntry.eventID = eventID;
+			newEntry.callback.AddListener ((BaseEventData) => {
+				listener(BaseEventData, args);
+			});
+			trigger.triggers.Add (newEntry);
+		}
 	}
 }

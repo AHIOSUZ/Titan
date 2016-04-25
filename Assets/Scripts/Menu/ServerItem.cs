@@ -17,6 +17,8 @@ public class ServerItem : MonoBehaviour {
 	private Color isCrowedColor;
 	private Color noCrowedColor;
 
+	private bool isTargetServer = false;
+
 	void Awake () {
 		serverText = transform.Find ("Name").GetComponent<Text> ();
 		serverImage = transform.GetComponent<Image> ();
@@ -44,6 +46,14 @@ public class ServerItem : MonoBehaviour {
 	public bool IsCrowed {
 		get{
 			return isCrowed;
+		}
+	}
+	public bool IsTargetServer {
+		get{
+			return isTargetServer;
+		}
+		set{
+			isTargetServer = value;
 		}
 	}
 
